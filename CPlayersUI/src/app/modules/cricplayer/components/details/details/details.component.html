@@ -1,0 +1,205 @@
+<mat-card class="example-card">
+  <div mat-dialog-actions >
+    <button class="close1" mat-button (click)="onNoClick()">Close</button>
+  </div>
+  <mat-card-header class="header">
+    <mat-card-title>{{playerDetails?.fullName}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="image" [src]='playerDetails?.imageURL'>
+
+  <table class="player">
+    <tr>
+      <th>Plays for</th>
+      <td colspan="2" itemprop="nationality">{{playerDetails?.country}}</td>
+    </tr>
+
+    <tr>
+      <th>Age</th>
+      <td colspan="2">{{playerDetails?.currentAge}}
+      </td>
+    </tr>
+    <tr>
+      <th>Born</th>
+      <td colspan="2">{{playerDetails?.born}}</td>
+    </tr>
+
+    <tr>
+      <th>Batting Style</th>
+      <td colspan="2">{{playerDetails?.battingStyle}}</td>
+    </tr>
+
+    <tr>
+      <th>Bowling Style</th>
+      <td colspan="2">{{playerDetails?.bowlingStyle}}</td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        {{playerDetails?.profile}}
+
+
+      </td>
+    </tr>
+
+  </table>
+
+  <h1>Batting Performance - as in the API </h1>
+
+  <table class="player">
+    <tr>
+      <td>League</td>
+
+      <td>St</td>
+      <td>Ct</td>
+
+      <td>Ave</td>
+      <td>HS</td>
+      <td>Runs</td>
+      <td>No</td>
+      <td>Inns</td>
+      <td>Mat</td>
+    </tr>
+    <tr>
+      <td>FirstClass</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.St}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.Ct}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.Ave}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.HS}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.Runs}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.NO}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.Inns}}</td>
+      <td>{{playerDetails?.data?.batting?.firstClass?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>ODIs</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.St}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.Ct}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.Ave}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.HS}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.Runs}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.NO}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.Inns}}</td>
+      <td>{{playerDetails?.data?.batting?.ODIs?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>listA</td>
+      <td>{{playerDetails?.data?.batting?.listA?.St}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.Ct}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.Ave}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.HS}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.Runs}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.NO}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.Inns}}</td>
+      <td>{{playerDetails?.data?.batting?.listA?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>T20Is</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.St}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.Ct}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.Ave}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.HS}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.Runs}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.NO}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.Inns}}</td>
+      <td>{{playerDetails?.data?.batting?.T20Is?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>tests</td>
+      <td>{{playerDetails?.data?.batting?.tests?.St}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.Ct}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.Ave}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.HS}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.Runs}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.NO}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.Inns}}</td>
+      <td>{{playerDetails?.data?.batting?.tests?.Mat}}</td>
+    </tr>
+  </table>
+
+  <h1>Bowling Performance - as in the API </h1>
+
+  <table class="player">
+    <tr>
+      <td>League</td>
+      <td>SR</td>
+      <td>Econ</td>
+      <td>Ave</td>
+
+      <td>BBM</td>
+      <td>BBI</td>
+      <td>Wkts</td>
+      <td>Runs</td>
+      <td>Balls</td>
+      <td>Inns</td>
+      <td>Mat</td>
+    </tr>
+
+    <tr>
+      <td>FirstClass</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.SR}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Econ}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Ave}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.BBM}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.BBI}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Wkts}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Runs}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Balls}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Inns}}</td>
+      <td>{{playerDetails?.data?.bowling?.firstClass?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>listA</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.SR}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Econ}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Ave}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.BBM}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.BBI}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Wkts}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Runs}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Balls}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Inns}}</td>
+      <td>{{playerDetails?.data?.bowling?.listA?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>T20Is</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.SR}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Econ}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Ave}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.BBM}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.BBI}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Wkts}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Runs}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Balls}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Inns}}</td>
+      <td>{{playerDetails?.data?.bowling?.T20Is?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>Test</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.SR}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Econ}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Ave}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.BBM}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.BBI}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Wkts}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Runs}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Balls}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Inns}}</td>
+      <td>{{playerDetails?.data?.bowling?.tests?.Mat}}</td>
+    </tr>
+    <tr>
+      <td>ODIs</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.SR}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Econ}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Ave}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.BBM}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.BBI}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Wkts}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Runs}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Balls}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Inns}}</td>
+      <td>{{playerDetails?.data?.bowling?.ODIs?.Mat}}</td>
+    </tr>
+  </table>
+
+
+</mat-card>

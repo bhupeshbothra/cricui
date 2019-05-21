@@ -1,0 +1,71 @@
+package com.stackroute.favouriteservice.domain;
+
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class User {
+
+	@Id
+	private String username;
+	
+	
+	private List<CricPlayer> playerList;
+
+	public User() {
+		super();
+	}
+
+	public User(String username, List<CricPlayer> playerList) {
+		super();
+		this.username = username;
+	
+		this.playerList = playerList;
+	}
+
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	
+
+
+	/**
+	 * @return the playerList
+	 */
+	public List<CricPlayer> getPlayerList() {
+		return playerList;
+	}
+
+	/**
+	 * @param playerList the playerList to set
+	 */
+	public void setPlayerList(List<CricPlayer> playerList) {
+		this.playerList = playerList;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [username=" + username +  ", playerList="
+				+ playerList + "]";
+	}
+	
+	
+	
+	
+}

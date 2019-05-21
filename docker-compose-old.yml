@@ -1,0 +1,92 @@
+version: '3'
+services:
+  userCricService:
+    image: bhupeshbothra/cricuserservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+      - criceurekaServer
+    ports:
+      - 7071:7071
+    healthcheck:
+      test: "exit 0"  
+      
+  favoriteService:
+    image: bhupeshbothra/cricfavservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongo
+      - rabbitmq
+      - criceurekaServer
+    ports:
+      - 7072:7072
+    healthcheck:
+      test: "exit 0"
+
+  playerrecommendationservice:
+    image: bhupeshbothra/cricrecommservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+      - rabbitmq
+      - criceurekaServer
+    ports:
+      - 7074:7074
+    healthcheck:
+      test: "exit 0"
+
+  criceurekaServer:
+    image: bhupeshbothra/criceurekaservice:v1
+    restart: always
+    network_mode: host
+    ports:
+      - 9003:9003      
+    healthcheck:
+      test: "exit 0" 
+  
+  criczuulservice:
+    image: bhupeshbothra/criczuulservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - criceurekaServer
+    ports:
+      - 8086:8086
+    healthcheck:
+      test: "exit 0"      
+
+  cricui:
+    image: bhupeshbothra/cricui:v1
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 8080:8080 
+    healthcheck:
+      test: "exit 0"
+
+  mysql:
+    image: mysql:5.5
+    network_mode: host
+    container_name: mysql_container
+    ports:
+      - 3306:3306    
+    environment:
+      MYSQL_DATABASENAME: cricUserDb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+
+  mongo:
+    image: mongo:3.4-jessie
+    network_mode: host
+    container_name: mongo
+    ports:
+      - 27017:27017    
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"  

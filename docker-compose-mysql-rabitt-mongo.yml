@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.5
+    network_mode: host
+    container_name: mysql_container
+    ports:
+      - 3306:3306    
+    environment:
+      MYSQL_DATABASENAME: userDb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+
+  mongo:
+    image: mongo:3.4-jessie
+    network_mode: host
+    container_name: mongo
+    ports:
+      - 27017:27017    
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

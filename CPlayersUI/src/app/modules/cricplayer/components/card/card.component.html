@@ -1,0 +1,32 @@
+<mat-card class="example-card">
+  <mat-card-header class="header">
+    <mat-card-title>{{player.fullName}}</mat-card-title>
+    <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
+    <mat-card-subtitle>PID : {{player.pid}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-actions class="button">
+
+    <button class="addbutton" (click)="addButtonClick(player)" *ngIf="!favoritedata" mat-mini-fab
+      matTooltip="Add to WishList" mat-mini-fab>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+
+    <button class="deletebutton" *ngIf="favoritedata" (click)="deleteTrack(player)" mat-mini-fab matTooltip="Delete"
+      mat-mini-fab>
+      <i class="material-icons">
+        delete
+      </i>
+    </button>
+
+
+
+    <button class="detailbutton" (click)="getDetails()" mat-mini-fab matTooltip="Details">
+      <mat-icon>
+        <i class="material-icons">
+          details </i>
+      </mat-icon>
+    </button>
+
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,5 @@
+<div class="container">
+  <app-card *ngFor='let player of players' [player]='player' [favoritedata]='favoritedata'
+    (deleteFromFavoriteList)='deleteFromFavoriteList($event)'>
+  </app-card>
+</div>

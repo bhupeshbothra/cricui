@@ -1,0 +1,69 @@
+version: '3'
+services:
+  userCricService:
+    image: userservice
+    build: userservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - criceurekaServer
+    ports:
+      - 7071:7071
+    healthcheck:
+      test: "exit 0"  
+      
+  favoriteService:
+    image: favouriteservice
+    build: favouriteservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - criceurekaServer
+    ports:
+      - 7072:7072
+    healthcheck:
+      test: "exit 0"
+
+  playerrecommendationservice:
+    image: playerrecommendationservice
+    build: playerrecommendationservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - criceurekaServer
+    ports:
+      - 7074:7074
+    healthcheck:
+      test: "exit 0"
+
+  criceurekaServer:
+    image: criceurekaserver
+    build: eurekaserverdemo/
+    restart: always
+    network_mode: host
+    ports:
+      - 9003:9003      
+    healthcheck:
+      test: "exit 0" 
+  
+  criczuulservice:
+    image: criczuulservice
+    build: zuulservice/
+    restart: always
+    network_mode: host
+    depends_on:
+      - criceurekaServer
+    ports:
+      - 8086:8086
+    healthcheck:
+      test: "exit 0"      
+
+  cricui:
+    image: cricui
+    build: CPlayersUI/
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 8080:8080 
+    healthcheck:
+      test: "exit 0"     
